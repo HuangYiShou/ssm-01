@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    从本机加载配置-->
+    <properties resource="db.properties"/>
+    <settings>
+        <!--       指定第三方日志的框架 -->
+        <!--      开启一级缓存  -->
+        <setting name="cacheEnabled" value="true"/>
+        <!--        <setting name="logImpl" value=""/>-->
+        <!--        开启延迟加载数据-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--        开启立即加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--        开启驼峰命名映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!--   设置类的前缀-->
+        <package name="com.qf.shou.mybatis.entity"/>
+    </typeAliases>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+    </mappers>
+</configuration>

@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
-  <artifactId>mybatis-01</artifactId>
+  <groupId>org.shou</groupId>
+  <artifactId>ssm-01</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>mybatis-01 Maven Webapp</name>
+  <name>ssm-01 Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -17,39 +17,80 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <mybatis.version>3.5.6</mybatis.version>
-    <junit.version>4.12</junit.version>
-    <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
-    <lombok-version>1.18.12</lombok-version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-     <version>${junit.version}</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+
+
+<!--    1spring的三个包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.2.8.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.2.8.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>5.2.8.RELEASE</version>
+    </dependency>
+
+
+<!--    2mybatis核心包-->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-      <version>${mybatis.version}</version>
+      <version>3.5.6</version>
     </dependency>
+<!--    spring集成mybatis依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>2.0.4</version>
+    </dependency>
+
+<!--    阿里数据库连接池-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.1.23</version>
+    </dependency>
+
+<!--    mysql驱动-->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql-connector-java.version}</version>
+      <version>8.0.21</version>
     </dependency>
+
+<!--    json解析-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.11.2</version>
+    </dependency>
+
+<!--    getter setter 工具包 @Date实体类-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>${lombok-version}</version>
+      <version>1.18.12</version>
     </dependency>
 
   </dependencies>
 
   <build>
-    <finalName>mybatis-01</finalName>
+    <finalName>ssm-01</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

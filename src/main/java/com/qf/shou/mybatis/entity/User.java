@@ -1,21 +1,23 @@
 package com.qf.shou.mybatis.entity;
 
 
-import java.io.Serializable;
+import lombok.Data;
 
+import java.io.Serializable;
+@Data
 public class User implements Serializable {
 
-  private long userId;
+  private Integer userId;
   private String username;
   private String password;
-  private long status;
+  private Integer status;
 
 
-  public long getUserId() {
+  public Integer getUserId() {
     return userId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(Integer userId) {
     this.userId = userId;
   }
 
@@ -42,8 +44,17 @@ public class User implements Serializable {
     return status;
   }
 
-  public void setStatus(long status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 
+  @Override
+  public String toString() {
+    return "User{" +
+            "userId=" + userId +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", status=" + status +
+            '}';
+  }
 }

@@ -2,3 +2,34 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name对应mapper java中的mapper接口-->
+<mapper namespace="com.qf.shou.mybatis.mapper.UserMapper">
+<!--    type类型为对应持久化对象类-->
+ <resultMap id="BaseResultMapper" type="User">
+<!--     封装常用的结果集属性-->
+<!--     持久层的属性对应数据库的字段应该一一对应-->
+     <id property="userId" column="user_id"/>
+     <result property="username" column="username"/>
+     <result property="password" column="password"/>
+     <result property="status" column="status"/>
+ </resultMap>
+
+<!--    id 为对应java中mapper接口中的方法-->
+    <insert id="insert">
+        <!--    写对应的sql语句-->
+        INSERT INTO user (username,password)
+        VALUES (#{user.usermame},#{user.password});
+    </insert>
+
+    <select id="selectUserById" resultMap="BaseResultMapper">
+    SELECT user_id,username,password,status
+    FROM user
+    WHERE status = 0;
+    </select>
+    <update id="updateById">
+--     UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
+        UPDATE user SET status = 1 where username = admin ;
+    </update>
+     
+    
+</mapper>

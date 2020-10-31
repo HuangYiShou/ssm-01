@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace为对应的mapper的接口-->
+<mapper namespace="com.qf.shou.ssm.mapper.ProductMapper">
+<!--    type 为对应的要映射的实体类-->
+    <resultMap id="BaseResultMap" type="Product">
+        <id property="productId" column="product_id"/>
+        <id property="name" column="name"/>
+        <id property="status" column="status"/>
+    </resultMap>
+    <select id="selectProduct" resultMap="BaseResultMap">
+        SELECT product_id, name, status
+        FROM t_product
+        WHERE status = 0 AND product_id = #{productId}
+    </select>
+
+</mapper>
